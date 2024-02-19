@@ -3,12 +3,24 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use App\Repository\MicroprocesseurRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 #[ORM\Entity(repositoryClass: MicroprocesseurRepository::class)]
-#[ApiResource]
+#[ApiResource (
+    operations: [
+        new GetCollection(),
+        new Get(),
+        new Post(),
+        new Put()
+    ]
+)]
 class Microprocesseur
 {
     #[ORM\Id]
@@ -17,18 +29,23 @@ class Microprocesseur
     private ?int $id = null;
 
     #[ORM\Column(length: 5)]
+    #[SerializedName('brand')]
     private ?string $marque = null;
-
+    
     #[ORM\Column(length: 8)]
+    #[SerializedName('family')]
     private ?string $famille = null;
 
     #[ORM\Column(length: 7)]
+    #[SerializedName('model')]
     private ?string $model = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 1, scale: 1)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 2, scale: 1)]
+    #[SerializedName('ghz')]
     private ?string $frequence = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 3, scale: 0)]
+    #[SerializedName('price')]
     private ?string $prix = null;
 
     public function getId(): ?int
