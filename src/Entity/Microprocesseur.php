@@ -46,7 +46,7 @@ class Microprocesseur
     #[SerializedName('ghz')]
     private ?string $frequence = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::DECIMAL, precision: 3, scale: 0)]
     #[SerializedName('price')]
     private ?int $prix = null;
 
