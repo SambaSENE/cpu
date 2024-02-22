@@ -18,7 +18,7 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
         new GetCollection(),
         new Get(),
         new Post(),
-        new Patch()
+        new Patch(inputFormats: ['json' => ['application/merge-patch+json']])
     ]
 )]
 class Microprocesseur
@@ -103,12 +103,12 @@ class Microprocesseur
         return $this;
     }
 
-    public function getPrix(): ?string
+    public function getPrix(): ?int
     {
         return $this->prix;
     }
 
-    public function setPrix(string $prix): static
+    public function setPrix(int $prix): static
     {
         $this->prix = $prix;
 

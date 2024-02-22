@@ -1,7 +1,7 @@
 /* Bleu clair : #0079bc
 Bleu clair transparent : #0079bc55
 Bleu foncé : #00008b
-#7FBEDD
+
 Rouge : #FF0000 */
 *{
     margin: 0;
@@ -9,6 +9,7 @@ Rouge : #FF0000 */
 }
 body {
     background-color: #0079bc55;
+ 
 }
 ul{
     list-style: none;
@@ -23,6 +24,12 @@ main {
     background: url('../img/banner.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    padding: 15px;
+}
+#banner h1{
+    color: #00008b;
+    background-color: #0079bc55;
+    width: 600px;
 }
 #cpus {
    display: flex;
@@ -41,13 +48,15 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     
 }
 .title {
-    background-color: #0079bc;
-   
+    background-color: #0079bc55;
+   color: #0079bc;
     margin: 0;
     text-align: center;
+    padding: 15px;
 }
 #cpus .title h2{
     text-align: center;
@@ -57,10 +66,19 @@ main {
     width: 60px;
     margin: 10px;
 }
+#cpus article ul{
+    margin: 15px;
+
+}
+
 .inventory {
+    color: #00008b;
     width: 553px;
     
 }
-#cpus article ul{
-    margin-left: 15px;
+.inventory h2{
+    margin: 10px 15px;
+}
+.inventory label {
+    margin: 30px;
 }

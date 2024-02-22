@@ -1,19 +1,24 @@
 import { CpuRepo } from "./CpuRepo.js";
-import { Cpu } from "./CpuRepo.js";
+import { Cpu } from "./Cpu.js";
 const app = {
     data() {
         return {
             listCpus : [],
             cpu : [],
-            stock: 0
+            stock: 0,
+          
         }
     },
     async mounted() {
      this.listCpus = await CpuRepo.getAllCpu();
-  
     
-    }, methods() {
+
+       let c = new Cpu(this.listCpus);
+        console.log(this.select);
+
     
+    }, methods: {
+       
         
     }, computed: {
         nbCpu(){

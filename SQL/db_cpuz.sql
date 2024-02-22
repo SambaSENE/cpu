@@ -27,11 +27,13 @@ CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
   PRIMARY KEY (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
--- Listage des données de la table db_cpuz.doctrine_migration_versions : ~1 rows (environ)
+-- Listage des données de la table db_cpuz.doctrine_migration_versions : ~2 rows (environ)
 DELETE FROM `doctrine_migration_versions`;
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
 	('DoctrineMigrations\\Version20240219083731', '2024-02-19 08:38:01', 30),
-	('DoctrineMigrations\\Version20240219090413', '2024-02-19 09:04:20', 42);
+	('DoctrineMigrations\\Version20240219090413', '2024-02-19 09:04:20', 42),
+	('DoctrineMigrations\\Version20240222093617', '2024-02-22 09:36:27', 63),
+	('DoctrineMigrations\\Version20240222113620', '2024-02-22 11:36:33', 76);
 
 -- Listage de la structure de table db_cpuz. microprocesseur
 CREATE TABLE IF NOT EXISTS `microprocesseur` (
@@ -40,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `microprocesseur` (
   `famille` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
   `model` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL,
   `frequence` decimal(2,1) NOT NULL,
-  `prix` decimal(3,0) NOT NULL,
+  `prix` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
