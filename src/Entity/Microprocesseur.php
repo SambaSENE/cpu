@@ -10,7 +10,6 @@ use ApiPlatform\Metadata\Post;
 use App\Repository\MicroprocesseurRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\PropertyInfo\Type;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
 #[ORM\Entity(repositoryClass: MicroprocesseurRepository::class)]
@@ -28,6 +27,7 @@ class Microprocesseur
     #[ORM\GeneratedValue]
     
     #[ORM\Column]
+    #[SerializedName('id')]
     private ?int $id = null;
 
     #[ORM\Column(length: 5)]
@@ -46,9 +46,9 @@ class Microprocesseur
     #[SerializedName('ghz')]
     private ?string $frequence = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 3, scale: 0)]
+    #[ORM\Column]
     #[SerializedName('price')]
-    private ?string $prix = null;
+    private ?int $prix = null;
 
     public function getId(): ?int
     {

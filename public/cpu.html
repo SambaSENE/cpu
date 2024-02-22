@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="./assets/main.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
     <title>Microprocesseurs</title>
 </head>
+
 <body>
+
     <main id="app">
-        
+        <div id="banner">
+            <h1>List of {{ nbCpu }} CPUs Manufactured on Mulhouse </h1>
+
+
+        </div>
+        <div id="cpus">
+            <article v-for="cpu of listCpus">
+                <div class="title block">
+                    <h2>{{ cpu.brand }} {{ cpu.family }} {{ cpu.model }}</h2>
+                    <img class="logo" :src="'./assets/img/'+ cpu.brand +'.svg'">
+                </div>
+                <ul>
+                    <li>ID : {{ cpu.id }}</li>
+                    <li>Frequency : {{ cpu.ghz}}</li>
+                    <li>Price : {{ cpu.price}}</li>
+                    <li>Stock : {{ stock }}</li>
+                </ul>
+        </div>
+        </article>
+
+        </div>
+        <article class="inventory">
+            <h2 class="title">inventory management</h2>
+            {{ cpu }}
+
+            <label for="cpu">1. Select a CPU</label>
+
+            <select name="cpu" id="cpu" v-model="cpu">
+                <option value="--">Select a CPU</option>
+                <option v-for="cpu of listCpus" :value="cpu.id">{{ cpu.brand }} {{ cpu.model }}</option>
+            </select>
+            <input v-if="cpu > 0" type="number" name="stock" id="stock" v-model="stock">
+
+        </article>
     </main>
+    <footer>
+
+    </footer>
 </body>
+
 </html>
