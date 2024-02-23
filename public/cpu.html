@@ -24,28 +24,28 @@
                     <img class="logo" :src="'./assets/img/'+ cpu.brand +'.svg'">
                 </div>
                 <ul>
-                    <li>ID :        {{ cpu.id }}</li>
-                    <li>Frequency : {{ cpu.ghz}}</li>
-                    <li>Price :     {{ cpu.price}}</li>
-                    <li>Stock :     {{ stock }}</li>
+                    <li><span>ID : </span>       {{ cpu.id }}</li>
+                    <li><span>Frequency :</span> {{ cpu.ghz}}</li>
+                    <li><span>Price :</span>     {{ cpu.price}}</li>
+                    <li><span></span>     {{ stock }}</li>
                 </ul>
         </div>
         </article>
 
         </div>
         <article class="inventory">
-            <h2 class="title invento">inventory management</h2>
+            <h2 class="title inventory">inventory management</h2>
             
 
             <label for="cpu">1. Select a CPU</label>
             
-                <select name="cpu" id="cpu" v-model="cpu">
+                <select name="cpu" id="cpu" v-model="idcpu">
                     <option value="--">Select a CPU</option>
-                    <option v-for="cpu of listCpus" :value="cpu.id">{{ cpu.brand }} {{ cpu.model }}</option>
+                    <option v-for="cpu of listCpus" @click="getStock(cpu.id)" :value="cpu.id">{{ cpu.brand }} {{ cpu.model }}</option>
                 </select>
-                <input v-if="cpu > 0" type="number" name="stock" id="stock" v-model="stock">
+                <input v-if="idcpu > 0" type="number"  name="stock" id="stock" v-model="stock">
             
-{{cpu}}{{stock}}
+{{idcpu}}{{stock}}
         </article>
     </main>
     <footer>

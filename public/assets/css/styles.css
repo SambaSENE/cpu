@@ -26,10 +26,12 @@ main {
     background-repeat: no-repeat;
     padding: 15px;
 }
-#banner h1{
-    color: #00008b;
-    background-color: #0079bc55;
+#banner h1 {
+    border-radius: 10px 10px 80px 10px;
+    color: #0079CF;
+    background-color: #71bce4d3;
     width: 600px;
+    padding: 20px;
 }
 #cpus {
    display: flex;
@@ -73,10 +75,13 @@ main {
 
 .inventory {
     color: #00008b;
-    width: 553px;
     
 }
 .inventory h2{
+    background: url('../img/banner.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     margin: 10px 15px;
 }
 .inventory label {
