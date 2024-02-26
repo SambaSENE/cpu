@@ -1,89 +1,39 @@
-/* Bleu clair : #0079bc
-Bleu clair transparent : #0079bc55
-Bleu foncé : #00008b
-
-Rouge : #FF0000 */
+:root {
+    --couleur-bleu-clair: #00a4fc94;
+    --couleur-bleu-clair-transparent: #0079bc55;
+    --couleur-bleu-foncé: #00008b;
+    --couleur-rouge: #ff0000;
+}
 *{
     margin: 0;
     padding: 0;
 }
-body {
-    background-color: #0079bc55;
- 
-}
-ul{
-    list-style: none;
-}
-main {
-    width: 100%;
-
-}
-#banner {
-    width: 100%;
-    height: 300px;
-    background: url('../img/banner.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 15px;
-}
-#banner h1 {
-    border-radius: 10px 10px 80px 10px;
-    color: #0079CF;
-    background-color: #71bce4d3;
-    width: 600px;
-    padding: 20px;
-}
-#cpus {
-   display: flex;
-   flex-wrap: wrap;
-   margin: 0 auto;
-}
-#cpus article {
-    border: 1px solid ;
-    margin: 10px;
-    border: 1px solid #FF0000;
-    border-radius: 0 0 30% 0 ;
-    width: 421px;
-  
-}
-#cpus  .block{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--couleur-bleu-clair);
 }
 .title {
-    background-color: #0079bc55;
-   color: #0079bc;
-    margin: 0;
-    text-align: center;
-    padding: 15px;
+    color: var(--couleur-bleu-clair);
+    background-color: var(--couleur-bleu-clair-transparent);
+   
 }
-#cpus .title h2{
-    text-align: center;
+#banner {
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
-}
-.logo {
-    width: 60px;
-    margin: 10px;
-}
-#cpus article ul{
-    margin: 15px;
-
-}
-
-.inventory {
-    color: #00008b;
+    height: 250px;
     
 }
-.inventory h2{
-    background: url('../img/banner.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    margin: 10px 15px;
+.banner_title {
+    line-height: 50px;
+    padding: 15px;
+    width: 450px;
+    border-radius: 8px 8px 60% 8px;
+
 }
-.inventory label {
-    margin: 30px;
+footer {
+    height: 250px;
 }

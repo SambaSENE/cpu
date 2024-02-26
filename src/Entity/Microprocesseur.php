@@ -15,10 +15,10 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 #[ORM\Entity(repositoryClass: MicroprocesseurRepository::class)]
 #[ApiResource (
     operations: [
-        new GetCollection(),
-        new Get(),
-        new Post(),
-        new Patch(inputFormats: ['json' => ['application/merge-patch+json']])
+        new GetCollection(uriTemplate: '/cpus'),
+        new Get(uriTemplate: '/cpus/{id}'),
+        new Post(uriTemplate: '/cpus'),
+        new Patch( uriTemplate: '/cpus/{id}' )
     ]
 )]
 class Microprocesseur
@@ -49,6 +49,9 @@ class Microprocesseur
     #[ORM\Column(type: Types::DECIMAL, precision: 3, scale: 0)]
     #[SerializedName('price')]
     private ?int $prix = null;
+
+    #[ORM\Column]
+    private ?int $stock = null;
 
     public function getId(): ?int
     {
@@ -111,6 +114,18 @@ class Microprocesseur
     public function setPrix(int $prix): static
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): static
+    {
+        $this->stock = $stock;
 
         return $this;
     }

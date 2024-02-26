@@ -1,52 +1,23 @@
-import { CpuRepo } from "./CpuRepo.js";
 import { Cpu } from "./Cpu.js";
+import { Request  } from "./Request.js";
+const url = 'http://localhost:3000/api/cpus';
 const app = {
-    data() {
+    data(){
         return {
             listCpus: [],
-            idcpu: [],
-            cpu: [],
-            stock: 0
-
-
-
-
-
+            cpu: [], // 
         }
-    },
-    async mounted() {
-        this.listCpus = await CpuRepo.getAllCpu();
-        console.log(this.listCpus);
-     
-        for (const cpu of this.listCpus) {
-            let c =  new Cpu(cpu);
-            this.cpu.push(c);
+    } ,
+   async mounted () {
+        const data = await Request.fetchApi(url); 
+        for(const c of data){
+           this.listCpus.push(c);
         }
+
+        this.cpu = new Cpu(this.listCpus);
         console.log(this.cpu);
-        
-        
-        
-
-    }, methods: {
-        getStock() {
-            
-            const cpu = this.idcpu.find(cpu => cpu.id == this.listCpu.id);
-          
-           
-            if (cpu > 0) {
-             
-              return this.stock;
-            } else {
-             
-              return 0; 
-            }
-          }
-          
-
-    }, computed: {
-        nbCpu() {
-            return this.listCpus.length;
-        }
+    
     }
 }
+
 Vue.createApp(app).mount('#app');

@@ -14,39 +14,16 @@
 <body>
 
     <main id="app">
-        <div id="banner">
-            <h1>List of {{ nbCpu }} CPUs Manufactured on Mulhouse </h1>
-        </div>
-        <div id="cpus">
-            <article v-for="cpu of listCpus">
-                <div class="title block">
-                    <h2 >{{ cpu.brand }} {{ cpu.family }} {{ cpu.model }}</h2>
-                    <img class="logo" :src="'./assets/img/'+ cpu.brand +'.svg'">
-                </div>
-                <ul>
-                    <li><span>ID : </span>       {{ cpu.id }}</li>
-                    <li><span>Frequency :</span> {{ cpu.ghz}}</li>
-                    <li><span>Price :</span>     {{ cpu.price}}</li>
-                    <li><span></span>     {{ stock }}</li>
-                </ul>
-        </div>
-        </article>
+       <article id="banner">
+            <h1 class="title banner_title " >List of 9 CPUs manufatured On Mulhouse</h1>
+       </article>
 
-        </div>
-        <article class="inventory">
-            <h2 class="title inventory">inventory management</h2>
-            
-
-            <label for="cpu">1. Select a CPU</label>
-            
-                <select name="cpu" id="cpu" v-model="idcpu">
-                    <option value="--">Select a CPU</option>
-                    <option v-for="cpu of listCpus" @click="getStock(cpu.id)" :value="cpu.id">{{ cpu.brand }} {{ cpu.model }}</option>
-                </select>
-                <input v-if="idcpu > 0" type="number"  name="stock" id="stock" v-model="stock">
-            
-{{idcpu}}{{stock}}
-        </article>
+       <article class="cards">
+            <article class="cardproducts" v-for="produit of cpu">
+                <h2 class="title"> {{}}</h2>
+            </article>
+        <h2 class="title"></h2>
+       </article>
     </main>
     <footer>
 
