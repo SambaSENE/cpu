@@ -44,7 +44,7 @@ class Microprocesseur
 
     #[ORM\Column(type: Types::DECIMAL, precision: 2, scale: 1)]
     #[SerializedName('ghz')]
-    private ?string $frequence = null;
+    private ?int $frequence = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 3, scale: 0)]
     #[SerializedName('price')]
@@ -94,12 +94,12 @@ class Microprocesseur
         return $this;
     }
 
-    public function getFrequence(): ?string
+    public function getFrequence(): ?int
     {
         return $this->frequence;
     }
 
-    public function setFrequence(string $frequence): static
+    public function setFrequence(int $frequence): static
     {
         $this->frequence = $frequence;
 

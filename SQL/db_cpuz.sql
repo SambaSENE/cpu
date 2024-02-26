@@ -48,16 +48,16 @@ CREATE TABLE IF NOT EXISTS `microprocesseur` (
 
 -- Listage des données de la table db_cpuz.microprocesseur : ~9 rows (environ)
 DELETE FROM `microprocesseur`;
-INSERT INTO `microprocesseur` (`id`, `marque`, `famille`, `model`, `frequence`, `prix`) VALUES
-	(101, 'AMD', 'Ryzen 3', '3200G', 3.6, 99),
-	(102, 'AMD', 'Ryzen 5', '3600', 3.6, 129),
-	(103, 'AMD', 'Ryzen 5', '5600G', 3.9, 149),
-	(104, 'AMD', 'Ryzen 7', '5800X', 3.8, 249),
-	(105, 'AMD', 'Ryzen 7', '7800X3D', 4.2, 499),
-	(106, 'INTEL', 'Core i5', '13500', 2.5, 139),
-	(107, 'INTEL', 'Core i5', '13600K', 3.5, 159),
-	(108, 'INTEL', 'Core i7', '13700K', 3.4, 169),
-	(109, 'INTEL', 'Core i7', '4790', 3.6, 79);
+INSERT INTO `microprocesseur` (`id`, `marque`, `famille`, `model`, `frequence`, `prix` , 'stock') VALUES
+	(101, 'AMD', 'Ryzen 3', '3200G', 3.6, 99 , 0),
+	(102, 'AMD', 'Ryzen 5', '3600', 3.6, 129 , 0),
+	(103, 'AMD', 'Ryzen 5', '5600G', 3.9, 149 , 0),
+	(104, 'AMD', 'Ryzen 7', '5800X', 3.8, 249 , 0),
+	(105, 'AMD', 'Ryzen 7', '7800X3D', 4.2, 499 , 0),
+	(106, 'INTEL', 'Core i5', '13500', 2.5, 139 , 0),
+	(107, 'INTEL', 'Core i5', '13600K', 3.5, 159 , 0),
+	(108, 'INTEL', 'Core i7', '13700K', 3.4, 169 , 0),
+	(109, 'INTEL', 'Core i7', '4790', 3.6, 79 , 0);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
