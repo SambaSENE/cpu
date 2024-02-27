@@ -5,25 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="module" src="./assets/main.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <title>Microprocesseurs</title>
 </head>
 
-<body>
+<body id="app">
+    <header>
+        <h1 class="title">Liste of the {{ nbCpu }} CPUs manufactured On Mulhouse </h1>
+    </header>
 
-    <main id="app">
-       <article id="banner">
-            <h1 class="title banner_title " >List of 9 CPUs manufatured On Mulhouse</h1>
-       </article>
-
-       <article class="cards">
-            <article class="cardproducts" v-for="produit of cpu">
-                <h2 class="title"> {{}}</h2>
+    <main >
+        <article class="cards_products">
+            <article v-for="cpu of oneCpu" class="product">
+                <h2 class="title">{{ cpu.brand }}</h2>
+                <img :src="'./assets/img/'+cpu.brand+'.svg'" alt="" srcset="">
+                <ul>
+                    <li><span>ID : </span>{{ cpu.id }}</li>
+                    <li><span>Fréquences :</span>{{ cpu.ghz }}</li>
+                    <li><span>Prix :</span>{{ cpu.price }}</li>
+                    <li><span>Stock :</span>{{ cpu.stock }}</li>
+                </ul>
             </article>
-        <h2 class="title"></h2>
-       </article>
+        </article>
+        <article class="select-stock">
+            <select>
+                <option value="-----"></option>
+                <option v-for="cpu of oneCpu" :value="cpu.id">{{ cpu.brand}} {{ cpu.family }} {{ cpu.model }}</option>
+            </select>
+
+            <input type="number" >
+        </article>
     </main>
     <footer>
 

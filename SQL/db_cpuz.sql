@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `microprocesseur` (
 
 -- Listage des données de la table db_cpuz.microprocesseur : ~9 rows (environ)
 DELETE FROM `microprocesseur`;
+
 INSERT INTO `microprocesseur` (`id`, `marque`, `famille`, `model`, `frequence`, `prix`, `stock`) VALUES
 	(101, 'AMD', 'Ryzen 3', '3200G', 3.6, 99, 0),
 	(102, 'AMD', 'Ryzen 5', '3600', 3.6, 129, 0),
@@ -60,6 +61,7 @@ INSERT INTO `microprocesseur` (`id`, `marque`, `famille`, `model`, `frequence`, 
 	(107, 'INTEL', 'Core i5', '13600K', 3.5, 159, 0),
 	(108, 'INTEL', 'Core i7', '13700K', 3.4, 169, 0),
 	(109, 'INTEL', 'Core i7', '4790', 3.6, 79, 0);
+
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
