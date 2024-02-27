@@ -1,53 +1,114 @@
 :root {
-    --couleur-bleu-clair: #00a4fc94;
+    --couleur-bleu-clair: #0079bc;
     --couleur-bleu-clair-transparent: #0079bc55;
     --couleur-bleu: #00008b;
     --couleur-rouge: #ff0000;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     width: 100vw;
+    background-color: var(--couleur-bleu-clair-transparent);
+}
+ul{
+    list-style: none;
 }
 .title {
     background-color: var(--couleur-bleu-clair-transparent);
-    color:var(--couleur-bleu);
-    padding:  15px;
-    
+    color: var(--couleur-bleu-clair);
+    padding: 15px;
+
 
 }
 
-header{
+header {
     width: 100%;
     background: url('../img/banner.jpg') center no-repeat;
     background-size: cover;
     height: 250px;
 }
+
 header h1 {
-    width: 70%;
+    width: 650px;
     padding: 25px 0;
     display: block;
     padding: 20px;
+    border-radius: 0 0 50px 0;
 }
+
 main {
     width: 100%;
 }
-.cards-products{
+
+.cards-products {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    margin: 15px 10px;
 
+
+}
+
+.content-product {
+    border: 1px solid var(--couleur-rouge);
+    border-radius: 0 0 80px 0;
+    position: relative;
+}
+
+.title-section-stock {
+    height: 30px;
+    padding: 20px;
+}
+
+.content-product img {
+    width: 60px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+.content-product ul {
+    padding: 10px ;
 }
 
 .select-stock {
-    border: 1px solid red;
 
+    padding: 10px;
 }
-.content-product{
+.select-stock h1 {
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 10px 0;
+}
+.select-stock ol{
+    padding: 10px 0;
+}
+.select-stock select  {
+    
+    height: 35px;
+    margin-right: 10px;
+}
+.select-stock span input  {
+    
+    height: 35px;
+    margin-right: 10px;
+}
+.content-product {
     width: 350px;
 }
+.select-stock span button {
+    width: 70px;
+    height: 40px;
+}
+.select-stock span button:hover {
+    background-color: var(--couleur-bleu-clair-transparent);
+    color: aliceblue;
+}
 footer {
-    height:200px ;
+    height: 200px;
 }

@@ -19,8 +19,8 @@
     <main>
         <article class="cards-products">
             <article class="content-product" v-for="product of cpu">
-                <h2 class="title">{{ product.brand }} {{ product.family }} {{ product.model }}</h2>
-
+                <h2 class="title title-section-stock">{{ product.brand }} {{ product.family }} {{ product.model }}</h2>
+                    <img :src="'./assets/img/'+ product.brand + '.svg'" alt="logo produit">
                 <ul>
                     <li><span>ID : </span>{{ product.id}}</li>
                     <li><span>Fréquences :</span>{{ product.ghz }}</li>
@@ -30,7 +30,7 @@
             </article>
         </article>
         <article class="select-stock">
-            <h1>Inventory management</h1>
+            <h1 class="title ">Inventory management</h1>
             <ol>
                 <li>Select a CPU</li>
                 <li>Edit the number of units in stock</li>
@@ -43,8 +43,9 @@
             <span v-if="select != null">
 
                 <input type="number" v-model="select.stock">
+                <button type="button" @click="updateCpu">Add stock</button>
+                <p>unit(s) in stock</p>
             </span>
-            {{ cpu.stock }}
         </article>
     </main>
     <footer>

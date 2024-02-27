@@ -31,6 +31,10 @@ const app = {
             }else {
                 this.select = null;
             }
+        },
+        async updateCpu(id){
+            let res = await ReposCpu.patchApi(id); 
+            return res;
         }
     }
 }

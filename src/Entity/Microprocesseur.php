@@ -50,6 +50,9 @@ class Microprocesseur
     #[SerializedName('price')]
     private ?int $prix = null;
 
+    #[ORM\Column]
+    private ?int $stock = null;
+
 
     public function getId(): ?int
     {
@@ -112,6 +115,18 @@ class Microprocesseur
     public function setPrix(int $prix): static
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): static
+    {
+        $this->stock = $stock;
 
         return $this;
     }
