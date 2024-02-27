@@ -29,6 +29,24 @@ header h1 {
     width: 70%;
     padding: 25px 0;
     display: block;
+    padding: 20px;
+}
+main {
+    width: 100%;
+}
+.cards-products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+}
+
+.select-stock {
+    border: 1px solid red;
+
+}
+.content-product{
+    width: 350px;
 }
 footer {
     height:200px ;

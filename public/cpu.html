@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/main.js"></script>
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <title>Microprocesseurs</title>
@@ -16,26 +16,35 @@
         <h1 class="title">Liste of the {{ nbCpu }} CPUs manufactured On Mulhouse </h1>
     </header>
 
-    <main >
-        <article class="cards_products">
-            <article v-for="cpu of oneCpu" class="product">
-                <h2 class="title">{{ cpu.brand }}</h2>
-                <img :src="'./assets/img/'+cpu.brand+'.svg'" alt="" srcset="">
+    <main>
+        <article class="cards-products">
+            <article class="content-product" v-for="product of cpu">
+                <h2 class="title">{{ product.brand }} {{ product.family }} {{ product.model }}</h2>
+
                 <ul>
-                    <li><span>ID : </span>{{ cpu.id }}</li>
-                    <li><span>Fréquences :</span>{{ cpu.ghz }}</li>
-                    <li><span>Prix :</span>{{ cpu.price }}</li>
-                    <li><span>Stock :</span>{{ cpu.stock }}</li>
+                    <li><span>ID : </span>{{ product.id}}</li>
+                    <li><span>Fréquences :</span>{{ product.ghz }}</li>
+                    <li><span>Prix :</span> {{ product.price }}</li>
+                    <li><span>Stock :</span> {{ product.stock }}</li>
                 </ul>
             </article>
         </article>
         <article class="select-stock">
-            <select>
-                <option value="-----"></option>
-                <option v-for="cpu of oneCpu" :value="cpu.id">{{ cpu.brand}} {{ cpu.family }} {{ cpu.model }}</option>
+            <h1>Inventory management</h1>
+            <ol>
+                <li>Select a CPU</li>
+                <li>Edit the number of units in stock</li>
+            </ol>
+            <select v-model="product" @change="selectCpu">
+                <option value="0">Select a CPU</option>
+                <option v-for="prod of cpu" :value="prod.id">{{ prod.brand }} {{ prod.family }} {{ prod.model }}
+                </option>
             </select>
+            <span v-if="select != null">
 
-            <input type="number" >
+                <input type="number" v-model="select.stock">
+            </span>
+            {{ cpu.stock }}
         </article>
     </main>
     <footer>
