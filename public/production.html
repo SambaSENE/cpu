@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="./assets/main.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <title>Production</title>
+</head>
+
+<body id="app">
+    <header>
+        <h1 class="title">CPU Production Simulation </h1>
+    </header>
+
+    <main id="main-production">
+        <article class="container">
+            <article class="titles-production" v-for="prod of production">
+                <h2 >{{ prod.nom }}</h2>
+                <p>{{ prod.description }}</p>
+            </article>
+           
+            </article>
+            article.progresse
+        </article>
+        
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

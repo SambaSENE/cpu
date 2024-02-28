@@ -14,9 +14,11 @@ body {
     width: 100vw;
     background-color: var(--couleur-bleu-clair-transparent);
 }
-ul{
+
+ul {
     list-style: none;
 }
+
 .title {
     background-color: var(--couleur-bleu-clair-transparent);
     color: var(--couleur-bleu-clair);
@@ -70,14 +72,16 @@ main {
     top: 5px;
     right: 10px;
 }
+
 .content-product ul {
-    padding: 10px ;
+    padding: 10px;
 }
 
 .select-stock {
 
     padding: 10px;
 }
+
 .select-stock h1 {
     background-image: url('../img/banner.jpg');
     background-size: cover;
@@ -85,30 +89,64 @@ main {
     background-repeat: no-repeat;
     margin: 10px 0;
 }
-.select-stock ol{
+
+.select-stock ol {
     padding: 10px 0;
 }
-.select-stock select  {
-    
+
+.select-stock select {
+
     height: 35px;
     margin-right: 10px;
 }
-.select-stock span input  {
-    
+
+.select-stock span input {
+
     height: 35px;
     margin-right: 10px;
 }
+
 .content-product {
     width: 350px;
 }
+
 .select-stock span button {
     width: 70px;
     height: 40px;
 }
+
 .select-stock span button:hover {
     background-color: var(--couleur-bleu-clair-transparent);
     color: aliceblue;
 }
+
+/* ------------------------------------MAIN PRODUCTION-------------------------------------- */
+
+#main-production {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 50%;
+}
+
+.titles-production {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--couleur-bleu-clair-transparent);
+
+}
+
+.titles-production p {
+    font-size: .8rem;
+    padding-top: 10px;
+}
+
 footer {
     height: 200px;
 }
