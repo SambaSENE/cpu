@@ -1,16 +1,14 @@
+import { FetchJson } from "./FetchJson.js";
+
+
 class ReposCpu {
 
     static urlApi = 'http://localhost:3000/api';
 
-    static async fetchApi(_url) {
-        let res = await fetch(_url);
-        let json = await res.json();
-        return json;
-    }
-
+  
     static async getCpus() {
 
-        let json = await ReposCpu.fetchApi(ReposCpu.urlApi +"/cpus");
+        let json = await FetchJson.fetchApi(ReposCpu.urlApi +"/cpus");
         
         return json;
     }
@@ -33,7 +31,7 @@ class ReposCpu {
             body: JSON.stringify(newCpuStock)
         }
 
-        let response = await fetch(ReposCpu.urlApi + '/'+_id , option);
+        let response = await fetch(ReposCpu.urlApi + '/cpus/'+_id , option);
 
         if (response.status == 200) {
             let json = response.json();
@@ -43,11 +41,6 @@ class ReposCpu {
         throw new Error("Error");
     }
 
-    static async getProduction()
-    {
-        let json = await ReposCpu.fetchApi(ReposCpu.urlApi + "/cpu_productions");
-         
-        return json;
-    }
+  
 }
 export { ReposCpu }

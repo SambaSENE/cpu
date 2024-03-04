@@ -35,7 +35,7 @@
                 <li>Select a CPU</li>
                 <li>Edit the number of units in stock</li>
             </ol>
-            <select v-model="product" @change="selectCpu">
+            <select v-model="produce" @change="selectCpu">
                 <option value="0">Select a CPU</option>
                 <option v-for="prod of cpu" :value="prod.id">{{ prod.brand }} {{ prod.family }} {{ prod.model }}
                 </option>

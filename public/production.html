@@ -17,16 +17,26 @@
     </header>
 
     <main id="main-production">
-        <article class="container">
-            <article class="titles-production" v-for="prod of production">
-                <h2 >{{ prod.nom }}</h2>
-                <p>{{ prod.description }}</p>
+        <article class="productions" v-for="production of listProductions" :key="production.id">
+            <article class="production title">
+                <h2> {{ production.nom }}</h2>
+                <p> {{ production.description }}</p>
             </article>
-           
-            </article>
-            article.progresse
+            <div>
+                <label>Statut actuel du CPU </label>
+                <progress max="100" :value="production.statusCurrent">{{ production.statusCurrent }}</progress>
+            </div>
+            <div>
+                <label for="status">Total produit </label>
+                <progress id="file" :max="production.nbProduce" :value="production.totalProduce"> {{ production.totalProduce }} / {{ production.nbProduce }}</progress>
+            </div>
+            <div>
+                <label for="units">Nombre d'unités à produire :</label>
+                <input type="number" v-model="production.totalProduce" id="units">
+                <button type="button" :data-id="production.id" @click="startProd">Démarrer</button>
+            </div>
         </article>
-        
+
     </main>
 
     <footer>

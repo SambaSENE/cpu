@@ -1,16 +1,16 @@
 import { Cpu } from "./js/Cpu.js";
-import { Production } from "./js/Production.js";
 import { ReposCpu } from "./js/ReposCpu.js";
+import { ReposProduction } from "./js/ReposProduction.js";
+import { Production } from "./js/Production.js";
 
 const app = {
     data() {
         return {
-            listCpus: [],
+            listCpus: [], cpu: [], // 
             listProductions: [], production: [],
-            cpu: [], // 
             select: null,
             produce: []
-            
+
         }
     },
     async mounted() {
@@ -19,14 +19,15 @@ const app = {
             let oneCpu = new Cpu(c)
             this.cpu.push(oneCpu);
         }
-        const   productions =  await ReposCpu.getProduction();
 
-
-        for (const prods of productions) {
-            let prod = new Production(prods);
+        this.listProductions = await ReposProduction.getProduction();
+        for (const pro of this.listProductions) {
+            let prod = new Production(pro);
             this.production.push(prod);
         }
-        console.log(this.production);
+
+        //  this.production.find((x) => x.id );
+
     }, computed: {
         nbCpu() {
             return this.cpu.lenght;
@@ -41,16 +42,22 @@ const app = {
         },
         async updateSelectedCpu(event) {
             console.log(this.select);
-       
+
             if (this.select != null) {
                 try {
                     await ReposCpu.patchApi(this.select.id, this.select.stock);
                     alert("CPU updated success.");
                 } catch (error) {
                     console.error("Error updating:", error);
-                }                    
+                }
 
             }
+        },
+        startProd(event) {
+            let idProd = event.target.id;
+            let objProd = this.production.find((x) => x.id == idProd);
+            let prodInstance = new Production(objProd);
+            prodInstance.start();
         }
     }
 }
